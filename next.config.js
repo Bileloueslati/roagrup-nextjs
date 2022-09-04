@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  images: {
+    domains: ["roagrup.dev"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
