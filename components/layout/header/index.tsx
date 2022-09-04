@@ -20,8 +20,10 @@ export default function Header() {
           <Logo />
           <Stack direction="row" alignItems="center" spacing={3}>
             <MainNav />
-            <LocaleSwitcher />
             <Cta />
+            <Box>
+              <LocaleSwitcher />
+            </Box>
           </Stack>
         </Stack>
       </Container>

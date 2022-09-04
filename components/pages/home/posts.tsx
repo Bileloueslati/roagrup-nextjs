@@ -16,6 +16,7 @@ import DefaultImage from "../../../assets/img/500x500.png";
 import dayjs from "dayjs";
 import Link from "next/link";
 import AddIcon from "@mui/icons-material/Add";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 const getImageUrl = (post: Post, i: number = 0) =>
   post._embedded["wp:featuredmedia"]?.[i]?.source_url;
@@ -103,7 +104,7 @@ const BoxPost: FunctionComponent<{ post: Post }> = ({ post }) => {
               px: 4,
             }}
           >
-            <AddIcon fontSize="large" sx={{color: "#fff"}} />
+            <AddIcon fontSize="large" sx={{ color: "#fff" }} />
           </Stack>
         </Box>
       </Link>
@@ -112,6 +113,7 @@ const BoxPost: FunctionComponent<{ post: Post }> = ({ post }) => {
         <Typography variant="h4" textTransform="uppercase" fontSize={18}>
           {rendered}
         </Typography>
+        <Typography>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry</Typography>
       </Box>
     </Stack>
   );
@@ -183,9 +185,15 @@ const Posts: FunctionComponent<{ posts: Post[] }> = ({ posts }) => {
                     <Typography fontSize={16} variant="h4">
                       {post.title.rendered}
                     </Typography>
-                    <Typography color="#95a5a6" fontSize={14}>
-                      {dayjs(post.date).format("DD/MM/YYYY")}
-                    </Typography>
+                    <Stack direction="row" spacing={1} mt={1}>
+                      <CalendarMonthIcon
+                        fontSize="small"
+                        sx={{ color: "text.secondary" }}
+                      />
+                      <Typography color="text.secondary" fontSize={14}>
+                        {dayjs(post.date).format("DD/MM/YYYY")}
+                      </Typography>
+                    </Stack>
                   </Grid>
                 </Grid>
               ))}

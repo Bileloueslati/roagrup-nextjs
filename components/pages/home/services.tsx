@@ -5,7 +5,7 @@ import {
   Typography,
   Button,
   useTheme,
-  Stack
+  Stack,
 } from "@mui/material";
 import { usePage } from "../../../contexts/PageContext";
 import BarChartIcon from "@mui/icons-material/BarChart";
@@ -39,7 +39,7 @@ export default function Services() {
           >
             <Stack direction="row" spacing={2} alignItems="center">
               <TrendingUpIcon fontSize="large" />
-              <Typography textTransform="uppercase" variant="h2" fontSize={30}>
+              <Typography variant="h2" fontSize={30}>
                 {title}
               </Typography>
             </Stack>
@@ -60,14 +60,12 @@ export default function Services() {
               <Grid item xs={12} md={4} key={Math.random()}>
                 <Stack
                   spacing={2}
-                  alignItems="center"
                   sx={{
                     py: 4,
                     px: 4,
                     boxShadow: "0 0 15px rgb(0 0 0 / 6%)",
                     background: "#fff",
                     borderRadius: 2,
-                    textAlign: "center",
                     transition: "all 0.3s linear",
                     "&:hover": {
                       background: palette.primary.main,
@@ -76,18 +74,24 @@ export default function Services() {
                     },
                   }}
                 >
-                  <BarChartIcon color="secondary" sx={{ fontSize: 40 }} />
+                  <BarChartIcon color="secondary" sx={{ fontSize: 60 }} />
 
                   <Typography variant="h3" sx={{ fontSize: 18 }}>
                     {title}
                   </Typography>
 
                   <Box>
-                    <Typography lineHeight={1.8} fontSize={14}>
+                    <Typography lineHeight={1.8} fontSize={16}>
                       {description}
                     </Typography>
 
-                    <Button color="secondary">Learn more</Button>
+                    <Button
+                      sx={{ p: 0, mt: 2 }}
+                      variant="text"
+                      color="secondary"
+                    >
+                      Learn more
+                    </Button>
                   </Box>
                 </Stack>
               </Grid>

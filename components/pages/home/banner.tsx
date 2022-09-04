@@ -55,7 +55,11 @@ export default function Banner() {
           }}
         >
           <Box>
-            <Typography textTransform="uppercase" fontSize={18}>
+            <Typography
+              textTransform="uppercase"
+              fontFamily="poppins"
+              fontSize={20}
+            >
               We&#180;re Rua Grup
             </Typography>
 
@@ -64,7 +68,7 @@ export default function Banner() {
               sx={{
                 lineHeight: 1.2,
                 fontSize: {
-                  lg: 45,
+                  lg: 40,
                 },
               }}
             >

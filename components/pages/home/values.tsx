@@ -11,6 +11,10 @@ import {
 import Image from "next/image";
 import { usePage } from "../../../contexts/PageContext";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import PublicIcon from "@mui/icons-material/Public";
+import AssuredWorkloadOutlinedIcon from "@mui/icons-material/AssuredWorkloadOutlined";
+import { cloneElement } from "react";
+import ConnectingAirportsOutlinedIcon from "@mui/icons-material/ConnectingAirportsOutlined";
 
 type Values = {
   values: {
@@ -23,12 +27,18 @@ export default function Values() {
 
   const { values } = usePage<Values>();
 
+  const icons = [
+    <PublicIcon key={null} />,
+    <AssuredWorkloadOutlinedIcon key={null} />,
+    <ConnectingAirportsOutlinedIcon key={null} />,
+  ];
+
   return (
     <Stack sx={{ my: 6 }}>
       <Container>
         <Grid container spacing={4}>
-          {values.map(({ title, description, image }) => (
-            <Grid item xs={12} md={4} key={title}>
+          {values.map(({ title, description, image }, i) => (
+            <Grid item xs={12} md={4} key={i}>
               <Stack
                 sx={{
                   position: "relative",
@@ -37,7 +47,6 @@ export default function Values() {
                   "&:hover": {
                     "& .title": {
                       opacity: 0,
-                      transform: "translateX(100%)",
                     },
 
                     "& .content": {
@@ -66,8 +75,7 @@ export default function Values() {
                   spacing={1}
                   sx={{
                     position: "absolute",
-                    transform: "translateX(0)",
-                    bottom: 20,
+                    bottom: 0,
                     left: 0,
                     right: 0,
                     background: alpha(palette.primary.main, 0.7),
@@ -75,28 +83,27 @@ export default function Values() {
                     padding: "10px 20px",
                     minHeight: 65,
                     margin: "0 auto",
-                    maxWidth: "95%",
-                    transition: "all 0.2s ease-in-out 0s",
+                    transition: "all 0.5s ease-in-out 0s",
                   }}
                 >
+                  <Box>
+                    {/* @ts-ignore */}
+                    {cloneElement(icons[i], {
+                      fontSize: "large",
+                      sx: {
+                        color: "#fff",
+                      },
+                    })}
+                  </Box>
                   <Typography
                     variant="h4"
-                    textTransform="uppercase"
-                    fontSize={14}
+                    fontSize={16}
                     color="#fff"
                     lineHeight={2}
                     fontWeight={700}
                   >
                     {title}
                   </Typography>
-                  <Box>
-                    <Button variant="contained" color="secondary">
-                      <KeyboardDoubleArrowRightIcon
-                        fontSize="large"
-                        sx={{ color: "#fff" }}
-                      />
-                    </Button>
-                  </Box>
                 </Stack>
 
                 <Stack
@@ -109,16 +116,29 @@ export default function Values() {
                     opacity: 0,
                     transform: "translateX(-100%)",
                     visibility: "hidden",
-                    transition: "all 0.2s ease-in-out 0s",
+                    transition: "all 1s cubic-bezier(.23,1,.32,1)",
                     background: alpha(palette.primary.main, 0.7),
                     color: "#fff",
                     py: 4,
                     px: 4,
                   }}
                 >
+                  <Typography
+                    variant="h4"
+                    fontSize={18}
+                    color="#fff"
+                    lineHeight={1.2}
+                    fontWeight={600}
+                  >
+                    {title}
+                  </Typography>
                   <Typography>{description}</Typography>
                   <Box>
-                    <Button variant="contained" color="secondary">
+                    <Button
+                      variant="text"
+                      color="secondary"
+                      startIcon={<KeyboardDoubleArrowRightIcon />}
+                    >
                       Learn more
                     </Button>
                   </Box>

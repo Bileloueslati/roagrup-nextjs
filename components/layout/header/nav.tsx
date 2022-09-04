@@ -1,13 +1,14 @@
 import { Box, Stack, useTheme } from "@mui/material";
+import { useTranslation } from "next-i18next";
 import Link from "next/link";
 
 export const paths = [
   {
-    name: "Home",
+    name: "home",
     path: "/",
   },
   {
-    name: "About us",
+    name: "about_us",
     path: "/about",
   },
   {
@@ -22,6 +23,8 @@ export const paths = [
 
 const MainNav = () => {
   const { palette } = useTheme();
+
+  const { t } = useTranslation("common");
 
   return (
     <Stack flexDirection="row" alignItems="center" gap={8}>
@@ -54,7 +57,7 @@ const MainNav = () => {
                     },
                   }}
                 >
-                  {name}
+                  {t(name)}
                 </Box>
               </Link>
             </Box>

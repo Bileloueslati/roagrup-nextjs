@@ -6,12 +6,13 @@ const theme = createTheme({
     h1: {
       fontFamily: "Poppins",
       fontWeight: 700,
-      textTransform: "uppercase",
+      textTransform: "capitalize",
     },
     h2: {
       fontFamily: "Poppins",
       fontWeight: 700,
       fontSize: 40,
+      textTransform: "capitalize",
     },
     h3: {
       fontFamily: "Poppins",
