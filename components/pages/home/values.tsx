@@ -34,7 +34,7 @@ export default function Values() {
   ];
 
   return (
-    <Stack sx={{ my: 6 }}>
+    <Stack sx={{ my: 8 }}>
       <Container>
         <Grid container spacing={4}>
           {values.map(({ title, description, image }, i) => (
@@ -78,7 +78,7 @@ export default function Values() {
                     bottom: 0,
                     left: 0,
                     right: 0,
-                    background: alpha(palette.primary.main, 0.7),
+                    background: alpha(palette.primary.main, 0.9),
                     width: "100%",
                     padding: "10px 20px",
                     minHeight: 65,
@@ -117,7 +117,7 @@ export default function Values() {
                     transform: "translateX(-100%)",
                     visibility: "hidden",
                     transition: "all 1s cubic-bezier(.23,1,.32,1)",
-                    background: alpha(palette.primary.main, 0.7),
+                    background: alpha(palette.primary.main, 0.9),
                     color: "#fff",
                     py: 4,
                     px: 4,

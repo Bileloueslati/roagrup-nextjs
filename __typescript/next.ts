@@ -2,6 +2,7 @@ import { IncomingMessage, ServerResponse } from "http"
 import { GetServerSidePropsResult, PreviewData } from "next"
 import { NextApiRequestCookies } from "next/dist/server/api-utils"
 import { ParsedUrlQuery } from "querystring"
+import { Languages } from "./api"
 
 export type GetServerSideProps<
   P extends { [key: string]: any } = { [key: string]: any },
@@ -18,7 +19,7 @@ type GetServerSidePropsContext<Q extends ParsedUrlQuery = ParsedUrlQuery> = {
   preview?: boolean
   previewData?: PreviewData
   resolvedUrl: string
-  locale: string;
+  locale: Languages;
   locales?: string[]
   defaultLocale?: string
 }

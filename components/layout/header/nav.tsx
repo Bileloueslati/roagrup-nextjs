@@ -1,6 +1,8 @@
 import { Box, Stack, useTheme } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import Link from "next/link";
+import { usePageContext } from "../../../contexts/PageContext";
+import useLocale from "../../../hooks/useLocale";
 
 export const paths = [
   {
@@ -13,11 +15,11 @@ export const paths = [
   },
   {
     name: "Products",
-    path: "/",
+    path: "/products",
   },
   {
     name: "Affiliated Companies",
-    path: "/",
+    path: "/affiliated-companies",
   },
 ];
 
@@ -25,6 +27,10 @@ const MainNav = () => {
   const { palette } = useTheme();
 
   const { t } = useTranslation("common");
+
+  const { locale } = useLocale();
+
+  const { translations } = usePageContext();
 
   return (
     <Stack flexDirection="row" alignItems="center" gap={8}>
@@ -38,30 +44,32 @@ const MainNav = () => {
             gap: 5,
           }}
         >
-          {paths.map(({ path, name }, i) => (
-            <Box component="li" key={i}>
-              <Link href={path} passHref>
-                <Box
-                  component="a"
-                  color="primary"
-                  sx={{
-                    fontSize: 16,
-                    cursor: "pointer",
-                    textDecoration: "none",
-                    color: palette.primary.main,
-                    fontFamily: "Poppins",
-                    fontWeight: 500,
-                    textTransform: "uppercase",
-                    "&:hover": {
-                      color: palette.warning.main,
-                    },
-                  }}
-                >
-                  {t(name)}
-                </Box>
-              </Link>
-            </Box>
-          ))}
+          {paths
+            .filter(() => locale in translations)
+            .map(({ path, name }, i) => (
+              <Box component="li" key={i}>
+                <Link href={path} passHref>
+                  <Box
+                    component="a"
+                    color="primary"
+                    sx={{
+                      fontSize: 16,
+                      cursor: "pointer",
+                      textDecoration: "none",
+                      color: palette.primary.main,
+                      fontFamily: "Poppins",
+                      fontWeight: 600,
+                      textTransform: "uppercase",
+                      "&:hover": {
+                        color: palette.warning.main,
+                      },
+                    }}
+                  >
+                    {t(name)}
+                  </Box>
+                </Link>
+              </Box>
+            ))}
         </Box>
       </nav>
     </Stack>

@@ -1,0 +1,23 @@
+.headroom {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+
+.headroom--unfixed {
+  position: relative;
+  transform: translateY(0);
+}
+.headroom--scrolled {
+  transition: transform 0.3s;
+}
+.headroom--unpinned {
+  position: fixed;
+  transform: translateY(-100%);
+}
+.headroom--pinned {
+  position: fixed;
+  transform: translateY(0%);
+  box-shadow: 0 0 15px rgb(0 0 0 / 6%);
+}

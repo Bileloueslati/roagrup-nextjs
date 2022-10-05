@@ -28,7 +28,7 @@ export default function Services() {
   const { palette } = useTheme();
 
   return (
-    <Stack sx={{ background: "#f1f2f8", py: 5 }}>
+    <Stack sx={{ background: "#f1f2f8", py: 8 }}>
       <Container>
         <Stack>
           <Stack
@@ -39,7 +39,7 @@ export default function Services() {
           >
             <Stack direction="row" spacing={2} alignItems="center">
               <TrendingUpIcon fontSize="large" />
-              <Typography variant="h2" fontSize={30}>
+              <Typography variant="h2" fontSize={35} color="primary">
                 {title}
               </Typography>
             </Stack>
@@ -84,14 +84,6 @@ export default function Services() {
                     <Typography lineHeight={1.8} fontSize={16}>
                       {description}
                     </Typography>
-
-                    <Button
-                      sx={{ p: 0, mt: 2 }}
-                      variant="text"
-                      color="secondary"
-                    >
-                      Learn more
-                    </Button>
                   </Box>
                 </Stack>
               </Grid>

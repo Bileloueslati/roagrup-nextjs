@@ -1,19 +1,35 @@
 import { Box, Divider, Stack, Typography, useTheme } from "@mui/material";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FunctionComponent } from "react";
+import { Fragment, FunctionComponent } from "react";
+import { usePageContext } from "../../../contexts/PageContext";
+import { Languages } from "../../../__typescript/api";
 
-const LocalItem: FunctionComponent<{ locale: string }> = ({ locale }) => {
-  const { pathname, locale: current } = useRouter();
+const LocalItem: FunctionComponent<{ locale: Languages }> = ({ locale }) => {
+  const { pathname, locale: current, query } = useRouter();
+
+  const { type, translations } = usePageContext();
 
   const { palette } = useTheme();
 
   return (
     <Box component="li">
-      <Link href={pathname} locale={locale} passHref>
+      <Link
+        href={{
+          pathname,
+          ...(type === "post" &&
+            query.slug &&
+            query.id && {
+              query: { slug: query.slug, id: translations[locale] },
+            }),
+        }}
+        locale={locale}
+        passHref
+      >
         <Box
           component="a"
           sx={{
+            fontFamily: "Poppins",
             textDecoration: "none",
             color:
               locale === current
@@ -21,7 +37,11 @@ const LocalItem: FunctionComponent<{ locale: string }> = ({ locale }) => {
                 : palette.primary.main,
           }}
         >
-          <Typography component="span" fontFamily="Poppins">
+          <Typography
+            component="span"
+            fontFamily="Poppins"
+            fontWeight={locale === current ? 600 : 500}
+          >
             {locale.toUpperCase()}
           </Typography>
         </Box>
@@ -31,6 +51,8 @@ const LocalItem: FunctionComponent<{ locale: string }> = ({ locale }) => {
 };
 
 export default function LocaleSwitcher() {
+  const { translations } = usePageContext();
+
   return (
     <Stack
       alignItems="center"
@@ -51,9 +73,14 @@ export default function LocaleSwitcher() {
         },
       }}
     >
-      <LocalItem locale="en" />
-      <Divider orientation="vertical" flexItem />
-      <LocalItem locale="fr" />
+      {Object.entries(translations).map(([k], i) => (
+        <Fragment key={i}>
+          <LocalItem locale={k as Languages} />
+          {i + 1 < Object.keys(translations).length && (
+            <Divider orientation="vertical" flexItem />
+          )}
+        </Fragment>
+      ))}
     </Stack>
   );
 }

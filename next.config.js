@@ -5,7 +5,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["roagrup.dev"],
+    domains: ["wp.fraicheur.tn", "www.wp.fraicheur.tn"],
   },
   i18n,
 };

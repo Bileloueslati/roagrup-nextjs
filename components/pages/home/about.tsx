@@ -1,4 +1,4 @@
-import { Container, Grid, Stack, Typography, Button, Box } from "@mui/material";
+import { Container, Grid, Stack, Typography, Button, Box, useTheme } from "@mui/material";
 import { usePage } from "../../../contexts/PageContext";
 import Image from "../../../assets/img/dark-mosaic.png";
 
@@ -18,13 +18,15 @@ export default function About() {
     about: { title, description, states },
   } = usePage<AboutT>();
 
+  const { palette } = useTheme();
+
   return (
     <Stack
       sx={{
         background: ({ palette }) => palette.primary.main,
         color: ({ palette }) => palette.primary.contrastText,
         py: 10,
-        my: 5
+        my: 5,
       }}
     >
       <Container>
@@ -59,6 +61,9 @@ export default function About() {
                       fontFamily="Poppins"
                       fontWeight={700}
                       fontSize={45}
+                      sx={{
+                        color: palette.secondary.main,
+                      }}
                     >
                       {state.number}
                     </Typography>

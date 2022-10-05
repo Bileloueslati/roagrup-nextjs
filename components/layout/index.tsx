@@ -2,6 +2,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Stack } from "@mui/system";
 import { FunctionComponent, PropsWithChildren } from "react";
 import theme from "../../libs/mui/theme";
+import FloatingButton from "../floatingButton";
 import Footer from "./footer";
 import Header from "./header";
 
@@ -14,6 +15,7 @@ const Layout: FunctionComponent<PropsWithChildren> = ({ children }) => {
         <Stack component="main">{children}</Stack>
         <Footer />
       </Stack>
+      <FloatingButton />
     </ThemeProvider>
   );
 };

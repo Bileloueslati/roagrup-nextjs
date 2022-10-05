@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   typography: {
@@ -25,16 +25,24 @@ const theme = createTheme({
     },
 
     allVariants: {
-      fontFamily: "Hind Vadodara",
-      fontWeight: 400,
+      fontFamily: "Lexend",
+      fontWeight: 300,
     },
   },
   palette: {
     primary: {
-      main: "#110e51",
+      main: "#1D1D91",
     },
     secondary: {
       main: "#ed6c02",
+    },
+    neutral: {
+      main: "#fff",
+    },
+
+    common: {
+      black: "#222",
+      white: "#fff",
     },
   },
   components: {
