@@ -2,8 +2,17 @@
 
     "home": "Home",
     "about_us": "About us",
+    "products": "Products",
+    "affiliated_companies": "Affiliated companies",
     "get_a_quote": "Get a quote",
     "share": "Share this article",
     "news": "News",
-    "show_all_posts": "Show all posts"
+    "show_all_posts": "Show all posts",
+    "learn_more": "Learn more",
+    "view_our_products": "View our products",
+    "services": "Service",
+    "infos": "Infos",
+    "newsletter": "Newsletter",
+    "newsletter_description": "Monthly Tips & strategies for accelerating revenue",
+    "registration_thanking": "Thank you for your registration"
 }

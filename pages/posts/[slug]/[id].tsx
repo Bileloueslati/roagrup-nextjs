@@ -99,10 +99,6 @@ export const getServerSideProps: GetServerSideProps<any, Params> = async ({
       notFound: true,
     };
   }
-
-  return {
-    props: {},
-  };
 };
 
 export default Post;

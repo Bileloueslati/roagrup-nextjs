@@ -1,8 +1,18 @@
 {
   "home": "Hoş geldin",
   "about_us": "Hakkında",
+  "products": "ürünler",
+  "affiliated_companies": "Bağlı şirketler",
   "get_a_quote": "Teklif isteği",
   "share": "Bu makaleyi paylaş",
   "news": "Haberler",
-  "show_all_posts": "Tüm gönderileri göster"
+  "show_all_posts": "Tüm gönderileri göster",
+  "learn_more": "Daha fazla bilgi edin",
+  "view_our_products": "Ürünlerimizi görün",
+  "services": "Hizmetler",
+  "infos": "bilgiler",
+  "newsletter": "haber bülteni",
+  "newsletter_description": "Geliri hızlandırmak için Aylık İpuçları ve stratejiler",
+  "registration_thanking": "Kaydınız için teşekkür ederiz"
+  
 }

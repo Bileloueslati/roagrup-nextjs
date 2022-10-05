@@ -56,6 +56,12 @@ export type Languages = "fr" | "en" | "tr";
 
 export type GlobalData = {
   acf: {
+    infos: {
+      phone: string;
+      email: string;
+      address: string;
+    };
+
     countries: {
       name: string;
       description: string;

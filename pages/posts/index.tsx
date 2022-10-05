@@ -19,6 +19,7 @@ type Props = {
 const Posts: NextPage<Props> = ({ posts, page }) => {
   const banner = page.acf.banner as BannerT;
 
+
   return (
     <PageContextProvider value={page}>
       <SeoPage />
@@ -61,10 +62,6 @@ export const getServerSideProps: GetServerSideProps<any> = async ({
       notFound: true,
     };
   }
-
-  return {
-    props: {},
-  };
 };
 
 export default Posts;

@@ -1,9 +1,17 @@
 {
-
-    "home": "Acceuil",
-    "about_us": "A propos",
-    "get_a_quote": "Demander un devis",
-    "share": "Partager cet article",
-    "news": "Actualités",
-    "show_all_posts": "Voir tous les articles"
+  "home": "Acceuil",
+  "about_us": "A propos",
+  "products": "Produits",
+  "affiliated_companies": "Compagnies affiliées",
+  "get_a_quote": "Demander un devis",
+  "share": "Partager cet article",
+  "news": "Actualités",
+  "show_all_posts": "Voir tous les articles",
+  "learn_more": "En savoir plus",
+  "view_our_products": "Voir nos produits",
+  "services": "Service",
+  "infos": "Infos",
+  "newsletter": "Newsletter",
+  "newsletter_description": "Conseils et stratégies mensuels pour accélérer les revenus",
+  "registration_thanking": "Merci de votre inscription"
 }

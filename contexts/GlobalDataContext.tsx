@@ -29,5 +29,5 @@ export const useGlobalDataContext = () => {
       "Please wrappe your component with <WebsiteContext.Provider />"
     );
 
-  return value;
+  return value.acf;
 };

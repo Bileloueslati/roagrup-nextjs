@@ -14,12 +14,16 @@ export const paths = [
     path: "/about",
   },
   {
-    name: "Products",
+    name: "products",
     path: "/products",
   },
   {
-    name: "Affiliated Companies",
+    name: "affiliated_companies",
     path: "/affiliated-companies",
+  },
+  {
+    name: "news",
+    path: "/posts",
   },
 ];
 

@@ -14,6 +14,7 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import * as yup from "yup";
+import { useTranslation } from "next-i18next";
 
 type Form = {
   email: string;
@@ -40,14 +41,14 @@ export default function NewsLetter() {
 
   const { palette } = useTheme();
 
+  const { t } = useTranslation("common");
+
   return (
     <Stack spacing={2}>
-      <Typography>
-        Monthly Tips &#38; strategies for accelerating revenue:
-      </Typography>
+      <Typography>{t("newsletter_description")}</Typography>
 
       {isSubmitSuccessful ? (
-        <Typography>Thank you for your registration</Typography>
+        <Typography>{t("registration_thanking")}</Typography>
       ) : (
         <Box component="form" onSubmit={handleSubmit(onSubmit)}>
           <FormControl

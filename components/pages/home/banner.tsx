@@ -10,6 +10,8 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { usePage } from "../../../contexts/PageContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 type BannerT = {
   banner: {
@@ -34,6 +36,8 @@ export default function Banner() {
   } = usePage<BannerT>();
 
   const { palette } = useTheme();
+
+  const { t } = useTranslation("common");
 
   return (
     <Box sx={{ overflow: "hidden", width: "100%", mx: "auto" }}>
@@ -101,14 +105,17 @@ export default function Banner() {
                   >
                     {description}
                   </Typography>
-                  <Button
-                    startIcon={<ChevronRightIcon />}
-                    variant="contained"
-                    size="large"
-                    color="secondary"
-                  >
-                    Learn more
-                  </Button>
+                  <Link href="/about" passHref>
+                    <Button
+                      component="a"
+                      startIcon={<ChevronRightIcon />}
+                      variant="contained"
+                      size="large"
+                      color="secondary"
+                    >
+                      {t("learn_more")}
+                    </Button>
+                  </Link>
                 </Stack>
               </Container>
             </Stack>

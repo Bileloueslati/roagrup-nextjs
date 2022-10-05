@@ -38,9 +38,7 @@ const useStyles = makeStyles(() => {
 const Map: FunctionComponent = () => {
   const classes = useStyles();
 
-  const {
-    acf: { countries },
-  } = useGlobalDataContext();
+  const { countries } = useGlobalDataContext();
 
   return (
     <Box position="relative" width="100%" height="100%">
