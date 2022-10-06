@@ -3,12 +3,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, FunctionComponent } from "react";
 import { usePageContext } from "../../../contexts/PageContext";
+import useMediaQuery from "../../../hooks/useMediaQuery";
 import { Languages } from "../../../__typescript/api";
 
 const LocalItem: FunctionComponent<{ locale: Languages }> = ({ locale }) => {
   const { pathname, locale: current, query } = useRouter();
 
   const { type, translations } = usePageContext();
+
+  const {isSm} = useMediaQuery()
 
   const { palette } = useTheme();
 
@@ -34,7 +37,7 @@ const LocalItem: FunctionComponent<{ locale: Languages }> = ({ locale }) => {
             color:
               locale === current
                 ? palette.secondary.main
-                : palette.primary.main,
+                : !isSm ? palette.primary.main: "#fff",
           }}
         >
           <Typography

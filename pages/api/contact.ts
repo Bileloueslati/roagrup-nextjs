@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 import EmailTemplate from "swig-email-templates";
 import path from "path";
+import { email } from "../../consts/data";
 
 const transporter = nodemailer.createTransport({
   host: "ssl0.ovh.net",
@@ -30,7 +31,7 @@ export default async function handler(
 
     await transporter.sendMail({
       from: `Roa GRUP <noreply@fraicheur.tn>`,
-      to: "mrbileltn@gmail.com",
+      to: email,
       subject: "You just receive a message from your website",
       text: text,
       html: html,

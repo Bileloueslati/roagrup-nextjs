@@ -1,10 +1,30 @@
-import { Box } from "@mui/material";
+import { Box, SxProps } from "@mui/material";
 import Image from "next/image";
+import { FunctionComponent } from "react";
 
-export default function Logo() {
+type Props = {
+  type?: "main" | "white";
+  height?: number;
+  width?: number;
+  sx?: SxProps;
+};
+
+const Logo: FunctionComponent<Props> = ({
+  type = "main",
+  height = 50,
+  width = 180,
+  ...rest
+}) => {
   return (
-    <Box>
-      <Image src="/img/logo.png" width="180px" height="50px" alt="" />
+    <Box {...rest}>
+      <Image
+        src={`/img/${type === "main" ? "logo" : "footer-logo"}.png`}
+        width={width}
+        height={height}
+        alt=""
+      />
     </Box>
   );
-}
+};
+
+export default Logo;

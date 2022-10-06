@@ -89,6 +89,7 @@ export default function Banner() {
                         lineHeight: 1.2,
                         fontSize: {
                           lg: 40,
+                          xs: 25
                         },
                       }}
                     >

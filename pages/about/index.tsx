@@ -14,6 +14,8 @@ import Partners from "../../components/pages/about/partners";
 import { getPage } from "../../consts/api";
 
 const About: NextPage<{ page: Page }> = ({ page }) => {
+
+  console.log(page)
  
   const {
     acf: { banner },

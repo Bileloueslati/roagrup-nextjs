@@ -3,6 +3,7 @@ import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { usePageContext } from "../../../contexts/PageContext";
 import useLocale from "../../../hooks/useLocale";
+import useMediaQuery from "../../../hooks/useMediaQuery";
 
 export const paths = [
   {
@@ -36,16 +37,18 @@ const MainNav = () => {
 
   const { translations } = usePageContext();
 
+  const { isSm } = useMediaQuery();
+
   return (
     <Stack flexDirection="row" alignItems="center" gap={8}>
-      <nav>
-        <Box
+      <Box component="nav">
+        <Stack
+          direction={isSm ? "column" : "row"}
           component="ul"
           sx={{
-            display: "flex",
-            flexDirection: "row",
             listStyle: "none",
-            gap: 5,
+            gap: !isSm ? 5 : 3.2,
+            ...(isSm && { alignItems: "center" }),
           }}
         >
           {paths
@@ -55,13 +58,12 @@ const MainNav = () => {
                 <Link href={path} passHref>
                   <Box
                     component="a"
-                    color="primary"
                     sx={{
                       fontSize: 16,
                       cursor: "pointer",
                       textDecoration: "none",
-                      color: palette.primary.main,
                       fontFamily: "Poppins",
+                      color: !isSm ? palette.primary.main : "#fff",
                       fontWeight: 600,
                       textTransform: "uppercase",
                       "&:hover": {
@@ -74,8 +76,8 @@ const MainNav = () => {
                 </Link>
               </Box>
             ))}
-        </Box>
-      </nav>
+        </Stack>
+      </Box>
     </Stack>
   );
 };
