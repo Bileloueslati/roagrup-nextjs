@@ -21,6 +21,8 @@
   "contact_form": {
     "firstName": "İlk adı",
     "lastName": "Soyadı",
+    "fullName": "Ad soyad",
+    "email": "E-posta",
     "subject": "Ders",
     "your_message": "Mesajın",
     "submit": "Göndermek",

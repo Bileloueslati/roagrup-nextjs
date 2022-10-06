@@ -22,6 +22,8 @@
     "contact_success_message": "Merci! Votre message a été envoyé",
     "firstName": "Prénom",
     "lastName": "Nom",
+    "fullName": "Nom et prénom",
+    "email": "Adresse email",
     "subject": "Objet",
     "your_message": "Votre message",
     "submit": "Envoyer"

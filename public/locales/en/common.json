@@ -21,6 +21,8 @@
   "contact_form": {
     "contact_success_message": "Thank you! your message has been sent",
     "firstName": "First name",
+    "fullName": "Full name",
+    "email": "Email address",
     "lastName": "Last name",
     "subject": "Subject",
     "your_message": "Your message",

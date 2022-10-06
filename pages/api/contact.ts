@@ -35,6 +35,7 @@ export default async function handler(
       subject: "You just receive a message from your website",
       text: text,
       html: html,
+      replyTo: data.email,
     });
 
     res.status(200).json(data);

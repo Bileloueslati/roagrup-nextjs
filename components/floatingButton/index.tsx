@@ -21,7 +21,7 @@ import { useTranslation } from "next-i18next";
 import axios from "axios";
 
 type Data = {
-  [key in "firstName" | "lastName" | "subject" | "message"]: string;
+  [key in "fullName" | "subject" | "message" | "email"]: string;
 };
 
 export default function FloatingButton() {
@@ -161,18 +161,19 @@ export default function FloatingButton() {
                     >
                       <TextField
                         variant="standard"
-                        label={t("contact_form.firstName")}
-                        error={!!errors.firstName}
-                        {...register("firstName", { required: true })}
+                        label={t("contact_form.fullName")}
+                        error={!!errors.fullName}
+                        {...register("fullName", { required: true })}
                         disabled={isSubmitSuccessful}
                         fullWidth
                       />
 
                       <TextField
                         variant="standard"
-                        label={t("contact_form.lastName")}
-                        {...register("lastName", { required: true })}
-                        error={!!errors.lastName}
+                        label={t("contact_form.email")}
+                        {...register("email", { required: true })}
+                        type="email"
+                        error={!!errors.email}
                         disabled={isSubmitSuccessful}
                         fullWidth
                       />
