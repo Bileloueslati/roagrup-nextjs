@@ -13,6 +13,18 @@
   "infos": "bilgiler",
   "newsletter": "haber bülteni",
   "newsletter_description": "Geliri hızlandırmak için Aylık İpuçları ve stratejiler",
-  "registration_thanking": "Kaydınız için teşekkür ederiz"
-  
+  "registration_thanking": "Kaydınız için teşekkür ederiz",
+  "modal": {
+    "do_you_have_question": "Bir sorunuz var mı ?",
+    "free_consulting": "Olağanüstü Kalitede Ücretsiz Danışmanlık"
+  },
+  "contact_form": {
+    "firstName": "İlk adı",
+    "lastName": "Soyadı",
+    "subject": "Ders",
+    "your_message": "Mesajın",
+    "submit": "Göndermek",
+    "contact_success_message": "Teşekkürler! Mesajınız gönderildi"
+
+  }
 }

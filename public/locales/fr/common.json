@@ -13,5 +13,17 @@
   "infos": "Infos",
   "newsletter": "Newsletter",
   "newsletter_description": "Conseils et stratégies mensuels pour accélérer les revenus",
-  "registration_thanking": "Merci de votre inscription"
+  "registration_thanking": "Merci de votre inscription",
+  "modal": {
+    "do_you_have_question": "Avez-vous une question ?",
+    "free_consulting": "Consultation gratuite avec une qualité exceptionnelle"
+  },
+  "contact_form": {
+    "contact_success_message": "Merci! Votre message a été envoyé",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "subject": "Objet",
+    "your_message": "Votre message",
+    "submit": "Envoyer"
+  }
 }

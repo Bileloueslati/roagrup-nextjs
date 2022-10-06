@@ -1,18 +1,29 @@
 {
-
-    "home": "Home",
-    "about_us": "About us",
-    "products": "Products",
-    "affiliated_companies": "Affiliated companies",
-    "get_a_quote": "Get a quote",
-    "share": "Share this article",
-    "news": "News",
-    "show_all_posts": "Show all posts",
-    "learn_more": "Learn more",
-    "view_our_products": "View our products",
-    "services": "Service",
-    "infos": "Infos",
-    "newsletter": "Newsletter",
-    "newsletter_description": "Monthly Tips & strategies for accelerating revenue",
-    "registration_thanking": "Thank you for your registration"
+  "home": "Home",
+  "about_us": "About us",
+  "products": "Products",
+  "affiliated_companies": "Affiliated companies",
+  "get_a_quote": "Get a quote",
+  "share": "Share this article",
+  "news": "News",
+  "show_all_posts": "Show all posts",
+  "learn_more": "Learn more",
+  "view_our_products": "View our products",
+  "services": "Service",
+  "infos": "Infos",
+  "newsletter": "Newsletter",
+  "newsletter_description": "Monthly Tips & strategies for accelerating revenue",
+  "registration_thanking": "Thank you for your registration",
+  "modal": {
+    "do_you_have_question": "Do you have a question ?",
+    "free_consulting": "Free Consulting With Exceptional Quality"
+  },
+  "contact_form": {
+    "contact_success_message": "Thank you! your message has been sent",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "subject": "Subject",
+    "your_message": "Your message",
+    "submit": "Submit"
+  }
 }

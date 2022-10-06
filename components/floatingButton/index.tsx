@@ -9,6 +9,7 @@ import {
   TextField,
   Typography,
   alpha,
+  Alert,
 } from "@mui/material";
 import MessageIcon from "@mui/icons-material/Message";
 import { useState } from "react";
@@ -17,6 +18,7 @@ import Fade from "@mui/material/Fade";
 import { useForm } from "react-hook-form";
 import Map from "./map";
 import { useTranslation } from "next-i18next";
+import axios from "axios";
 
 type Data = {
   [key in "firstName" | "lastName" | "subject" | "message"]: string;
@@ -30,6 +32,7 @@ export default function FloatingButton() {
   const { t } = useTranslation("common");
 
   const handleClose = () => {
+    reset();
     setOpen(false);
   };
   const handleOpen = () => {
@@ -40,11 +43,13 @@ export default function FloatingButton() {
     handleSubmit,
     register,
     reset,
-    formState: { isSubmitting },
+    formState: { isSubmitting, isSubmitSuccessful, errors },
   } = useForm<Data>();
 
-  const onSubmit = (data: Data) => {
-    console.log(data);
+  const onSubmit = async (data: Data) => {
+    try {
+      await axios.post<Data>("/api/contact", data);
+    } catch (e: unknown) {}
   };
 
   return (
@@ -118,11 +123,11 @@ export default function FloatingButton() {
                 >
                   <Box>
                     <Typography variant="h2" fontSize={30} color="primary">
-                      Free Consulting With Exceptional Quality
+                      {t("modal.free_consulting")}
                     </Typography>
 
                     <Typography variant="body2" fontSize={16}>
-                      Do you have a question ?
+                      {t("modal.do_you_have_question")}
                     </Typography>
                   </Box>
 
@@ -144,6 +149,11 @@ export default function FloatingButton() {
                   </Grid>
 
                   <Grid item md={6}>
+                    {isSubmitSuccessful && (
+                      <Alert severity="success" sx={{ mb: 2 }}>
+                        {t("contact_form.contact_success_message")}
+                      </Alert>
+                    )}
                     <Stack
                       component="form"
                       spacing={2}
@@ -151,30 +161,38 @@ export default function FloatingButton() {
                     >
                       <TextField
                         variant="standard"
-                        label="First name"
-                        {...register("firstName")}
+                        label={t("contact_form.firstName")}
+                        error={!!errors.firstName}
+                        {...register("firstName", { required: true })}
+                        disabled={isSubmitSuccessful}
                         fullWidth
                       />
 
                       <TextField
                         variant="standard"
-                        label="Last name"
-                        {...register("lastName")}
+                        label={t("contact_form.lastName")}
+                        {...register("lastName", { required: true })}
+                        error={!!errors.lastName}
+                        disabled={isSubmitSuccessful}
                         fullWidth
                       />
 
                       <TextField
                         variant="standard"
-                        label="Subject"
-                        {...register("subject")}
+                        label={t("contact_form.subject")}
+                        {...register("subject", { required: true })}
+                        error={!!errors.subject}
+                        disabled={isSubmitSuccessful}
                         fullWidth
                       />
 
                       <TextField
                         variant="standard"
-                        label="Message"
+                        label={t("contact_form.your_message")}
                         rows={5}
-                        {...register("message")}
+                        {...register("message", { required: true })}
+                        error={!!errors.message}
+                        disabled={isSubmitSuccessful}
                         fullWidth
                         multiline
                       />
@@ -183,8 +201,9 @@ export default function FloatingButton() {
                         color="secondary"
                         variant="contained"
                         type="submit"
+                        disabled={isSubmitting || isSubmitSuccessful}
                       >
-                        Submit
+                        {t("contact_form.submit")}
                       </Button>
                     </Stack>
                   </Grid>
