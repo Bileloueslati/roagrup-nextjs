@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps, globalData }: Props) {
   return (
     <>
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+        src="https://www.googletagmanager.com/gtag/js?id=G-QYT71KT4VK"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
