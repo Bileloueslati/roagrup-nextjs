@@ -12,6 +12,7 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@hookform/resolvers": "^2.9.7",
+    "@mailchimp/mailchimp_marketing": "^3.0.78",
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.2",
     "@mui/styles": "^5.10.8",
@@ -35,6 +36,8 @@
     "zustand": "^4.0.0-rc.4"
   },
   "devDependencies": {
+    "@types/json2mq": "^0.2.0",
+    "@types/mailchimp__mailchimp_marketing": "^3.0.6",
     "@types/node": "18.7.14",
     "@types/nodemailer": "^6.4.6",
     "@types/react": "18.0.18",
