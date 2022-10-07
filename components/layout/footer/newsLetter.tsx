@@ -12,9 +12,11 @@ import {
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
 import * as yup from "yup";
 import { useTranslation } from "next-i18next";
+import { Fragment, useState } from "react";
+import NewsLetterModal from "../../newsletter/index";
+import useBooleanState from "webrix/hooks/useBooleanState";
 
 type Form = {
   email: string;
@@ -25,31 +27,39 @@ const validationSchema = yup.object({
 });
 
 export default function NewsLetter() {
+  const [email, setEmail] = useState<null | string>(null);
+
   const {
     control,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm<Form>({
     resolver: yupResolver(validationSchema),
     defaultValues: {
-      email: "",
+      email: email || "",
     },
   });
 
-  const onSubmit = ({ email }: Form) => {};
+  const onSubmit = ({ email }: Form) => {
+    setEmail(email);
+    openModal();
+  };
 
   const { palette } = useTheme();
 
   const { t } = useTranslation("common");
 
-  return (
-    <Stack spacing={2}>
-      <Typography>{t("newsletter_description")}</Typography>
+  const {
+    value: isOpen,
+    setTrue: openModal,
+    setFalse: closeModal,
+  } = useBooleanState(!!email);
 
-      {isSubmitSuccessful ? (
-        <Typography>{t("registration_thanking")}</Typography>
-      ) : (
+  return (
+    <Fragment>
+      <Stack spacing={2}>
+        <Typography>{t("newsletter_description")}</Typography>
         <Box component="form" onSubmit={handleSubmit(onSubmit)}>
           <FormControl
             fullWidth
@@ -91,7 +101,13 @@ export default function NewsLetter() {
             />
           </FormControl>
         </Box>
-      )}
-    </Stack>
+      </Stack>
+
+      <NewsLetterModal
+        email={email!}
+        setEmail={setEmail}
+        modalState={{ isOpen, openModal, closeModal }}
+      />
+    </Fragment>
   );
 }

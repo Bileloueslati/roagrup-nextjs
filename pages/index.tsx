@@ -20,8 +20,6 @@ type Props = {
 };
 
 const Home: NextPage<Props> = ({ page, posts }) => {
-
-  console.log({posts})
   return (
     <PageContextProvider value={page}>
       <Layout>
@@ -55,6 +53,11 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
       },
     };
   } catch (e: unknown) {
+    console.log(e);
+
+    if (e instanceof Error) {
+      console.log(e.message);
+    }
     return {
       notFound: true,
     };
